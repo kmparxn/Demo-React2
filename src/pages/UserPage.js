@@ -20,13 +20,12 @@ import Popover from '@mui/material/Popover';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Iconify from '../components/iconify/Iconify';
-
 import DialogUser from '../components/dialog/DialogUser';
 import DialogInventory from '../components/dialog/DialogInventory';
 import DialogEmail from '../components/dialog/DialogEmail';
 import DownloadPdf from '../utils/DownloadPdf';
-import { UserListToolbar } from 'src/sections/@dashboard/user';
-import { Card } from '@mui/material';
+import UserListToolbar from '../sections/@dashboard/user/UserListToolbar';
+import Card from '@mui/material/Card';
 
 function createData(name, calories, fat, carbs, protein, price) {
   return {
