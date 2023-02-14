@@ -25,6 +25,8 @@ import DialogUser from '../components/dialog/DialogUser';
 import DialogInventory from '../components/dialog/DialogInventory';
 import DialogEmail from '../components/dialog/DialogEmail';
 import DownloadPdf from '../utils/DownloadPdf';
+import { UserListToolbar } from 'src/sections/@dashboard/user';
+import { Card } from '@mui/material';
 
 function createData(name, calories, fat, carbs, protein, price) {
   return {
@@ -215,6 +217,14 @@ export default function CollapsibleTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [open, setOpen] = React.useState(false);
+  const [selected, setSelected] = React.useState([]);
+  const [filterName, setFilterName] = React.useState('');
+
+  const handleFilterByName = (event) => {
+    setPage(0);
+    setFilterName(event.target.value);
+  };
+
 
   const handleDialog = () => {
     setOpen(!open);
@@ -241,6 +251,10 @@ export default function CollapsibleTable() {
           <DialogUser open={open} handleDialog={handleDialog} /> 
         </Stack>
     </Container>
+
+    <Card>
+      <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+    </Card>
     
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
@@ -252,6 +266,8 @@ export default function CollapsibleTable() {
               <TableCell align="right">NIT</TableCell>
               <TableCell align="right">Telefono</TableCell>
               <TableCell align="right">País</TableCell>
+              <TableCell align="right">Action</TableCell>
+              
             </TableRow>
           </TableHead>
           <TableBody>
