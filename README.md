@@ -3,8 +3,6 @@
 
 ## Stack Tecnologico
 
-Principales tecnologias para el proyecto CompanyTory:
-
 * **React:** 
 * **Material-UI** 
 * **RTK Query**
